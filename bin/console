@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "json"
+require "companion_cube"
+
+cc = nil
+
+begin
+  cc = CompanionCube::Client.new(
+    url:        ENV.fetch("COMPANION_CUBE_URL"),
+    access_key: ENV.fetch("COMPANION_CUBE_ACCESS_KEY"),
+    secret_key: ENV.fetch("COMPANION_CUBE_SECRET_KEY")
+  )
+rescue
+  puts "Set Companion Cube env variables to automatically load the client"
+end
+
+instance_variable_set(:@companion_cube, cc)
+
+require "irb"
+IRB.start(__FILE__)

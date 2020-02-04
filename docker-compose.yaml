@@ -1,0 +1,14 @@
+version: "2"
+services:
+  cc:
+    build: .
+    image: companion-cube-ruby
+    network_mode: host
+    environment:
+      - COMPANION_CUBE_URL=http://dockerhost:8080
+      - COMPANION_CUBE_ACCESS_KEY=access
+      - COMPANION_CUBE_SECRET_KEY=secret
+    extra_hosts:
+      - "dockerhost:$DOCKERHOST"
+    volumes:
+      - ./:/src
