@@ -101,9 +101,11 @@ gem install companion_cube-*.gem
 Push the gem:
 
 ```sh
-gem push companion_cube-*.gem
+gem push companion_cube-*.gem --host https://rubygems.org
 rm companion_cube-*.gem
 ```
+
+The credentials for the team account are in the box folder and in 1Password.
 
 ## License
 
